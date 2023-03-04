@@ -71,3 +71,10 @@ for (const a of odds3(40)) log(a);
 console.log(...odds3());
 
 console.log([...odds3(10)], [...odds3(20)]);
+
+let m = new Map();
+
+m.set('a', 10);
+m.set('a', 20);
+
+console.log(new Map(map(([k, a]) => [k, a * 2], m)));
