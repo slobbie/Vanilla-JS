@@ -1,0 +1,59 @@
+<script src="../7.지연성/fs.js"></script>
+
+<script>
+  // range
+  // 숫자를 받고 숫자의 크기만한 배열을 리턴
+  const add = (a, b) => a + b;
+
+  const range = (l) => {
+    let i = -1;
+    let res = [];
+    while (++i < l) {
+      res.push(i);
+    }
+    return res;
+  };
+
+  let list = range(4);
+
+  // range 안에 모든 수를 더하는 함수
+  log(list);
+  log(reduce(add, list));
+</script>
+
+<script>
+  // 느긋한 L.range
+
+  const L = {};
+
+  L.range = function* (l) {
+    let i = -1;
+    while (++i < l) {
+      yield i;
+    }
+  };
+
+  let list2 = L.range(4);
+  log(list2);
+  // range 안에 모든 수를 더하는 함수
+  log(reduce(add, list2));
+
+  // range 와 L.range 의 차이점
+  // range 같은 경우 실행 즉시 값이 평가 된다 -> log(range(4)) => [0, 1, 2, 3, 4]
+  // L.range 의 경우 L.range(4) -> 값이 없다.
+  // L.range 는 이 값을 사용할려는 사용처가 생길경우 이터레이터 함수가 돌면서 값이 생성
+  // 필요한 값을 하나씩 꺼내서 사용 -> 배열을 만들지 않고 필요한 값이 생겼을시에 생성
+</script>
+
+<script>
+  function test(name, time, f) {
+    console.time(name);
+    while (time--) {
+      f();
+    }
+    console.timeEnd(name);
+  }
+
+  test('range', 10, () => reduce(add, range(1000000)));
+  test('L.range', 10, () => reduce(add, L.range(1000000)));
+</script>
