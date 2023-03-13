@@ -59,6 +59,7 @@
 </script>
 
 <script>
+  // take
   // slice 와 같은 기능 -> 배열에서 원하는 수의 값을 받는다
   const take = curry((l, iter) => {
     let res = [];
@@ -77,3 +78,61 @@
   go(L.range(10000), take(5), reduce(add), log);
   console.timeEnd('');
 </script>
+
+<script>
+  // 이터러블 중심 프로그래밍에서의 지연 평가 (Lazy Evaluation)
+  // 제떄 계산법 -> 가장 필요한데까지 계산을 미루다가 코드가 필요할때 해당 코드를 평가하면서 값들을 만들어나가는 기법
+  // 느긋한 계산법
+  // 제너레이터/이너레이터 프로토콜 기반으로 구현
+</script>
+
+<script>
+  // L.map
+  // 지연성을 가진 맵
+  L.map = curry(function* (f, iter) {
+    iter = iter[Symbol.iterator]();
+    let cur
+    while (!(cur = iter.next()).done) {
+      const a = cur.value;
+        yield f(a);
+    }
+  });
+
+  L.map((a) => a + 10, [1, 2, 3]);
+</script>
+
+<script>
+  // L.filter
+  // 지연성을 가진 필터
+  L.filter = curry(function* (f, iter) {
+    iter = iter[Symbol.iterator]();
+    let cur
+    while (!(cur = iter.next()).done) {
+      const a = cur.value;
+      if(f(a)) {
+        yield a;
+      }
+    }
+  });
+
+  L.filter((a) => a % 2, [1, 2, 3, 4]);
+
+  go(L.range(10),
+    L.map(n => n + 10),
+    L.filter(n => n % 2),
+    take(2),
+    log
+  )
+</script>
+
+### map, filter 계열 함수들이 가지는 결합 법칙
+
+  - 사용하는 데이터가 무엇이든지
+  - 사용하는 보조 함수가 순수 함수라면 무엇이든지
+  - 아래와 같이 결합한다면 둘다 결과가 같다.
+
+  [[mapping, mapping], [filtering, filtering], [mapping, mapping]]
+
+  =
+
+  [[mapping, filtering, mapping], [mapping, filtering, mapping]]

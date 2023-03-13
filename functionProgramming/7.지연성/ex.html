@@ -1,0 +1,21 @@
+<script src="../7.지연성/fs2.js"></script>
+
+<script>
+  // L.filter, L.map, L.filter, take, reduce 중첩 사용
+
+  // go(
+  //   range(10),
+  //   map((n) => n + 10),
+  //   filter((n) => n % 2),
+  //   take(2),
+  //   log
+  // );
+
+  go(
+    L.range(10),
+    L.map((n) => n + 10),
+    L.filter((n) => n % 2),
+    take(2),
+    log
+  );
+</script>
