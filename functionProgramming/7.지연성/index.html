@@ -136,3 +136,19 @@
   =
 
   [[mapping, filtering, mapping], [mapping, filtering, mapping]]
+
+
+
+## 결과를 만드는 함수 reduce, take
+<script>
+  // 객체로 부터 url의 커리스트링를 받아내는 함수
+
+  const queryStr = (obj) => {
+    return go(
+      obj,
+      Object.entries,
+      map(([k, v]) => `${k}=${v}`)
+      )
+  }
+  console.log(queryStr({ limit: 10, offset: 10, type: 'notice'}));
+</script>
