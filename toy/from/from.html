@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="./prototype.ts"></script> -->
+    <link rel="stylesheet" href="from.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="fromBox">
+        <h2 id="title">배송 정보</h2>
+        <div class="space_m_b_20"></div>
+        <div>
+          <div class="liBox">
+            <div class="itemTitleBox">
+              <span>배송지명</span>
+            </div>
+            <div class="inputBox">
+              <input id="addressInput" class="inputStyle" />
+            </div>
+          </div>
+
+          <div class="space_m_b_20"></div>
+
+          <div class="liBox">
+            <div class="itemTitleBox">
+              <span>수령인</span>
+            </div>
+            <div class="inputBox">
+              <input class="inputStyle" />
+            </div>
+          </div>
+
+          <div class="space_m_b_20"></div>
+
+          <div class="liAddressBox">
+            <div class="addressBox">
+              <span>주소</span>
+            </div>
+            <div class="inputGroup">
+              <input class="inputStyle" />
+              <div class="space_m_b_10"></div>
+              <input class="inputStyle" />
+            </div>
+          </div>
+
+          <div class="space_m_b_20"></div>
+
+          <div class="liBox">
+            <div class="itemTitleBox">
+              <span>연락처</span>
+            </div>
+            <div class="inputBox">
+              <input class="inputStyle" />
+            </div>
+          </div>
+        </div>
+
+        <div class="underline"></div>
+
+        <div class="space_m_b_30"></div>
+        <div class="selectItemResBox">
+          <h3>주문상품 정보 / 총 1 개</h3>
+
+          <div class="underline"></div>
+
+          <div class="selectItemInfoBox">
+            <img src="29cmimg.jpeg" class="selectItemImg"></img>
+            <div class="selectItemInfoTitleBox">
+              <div class="itemBrand">렉슨</div>
+              <div class="itemName">선라이즈 무드등 알람시계</div>
+              <div class="itemOption">옵션 : 골드</div>
+            </div>
+          </div>
+
+          <div class="underlineGray"></div>
+
+          <div class="selectItemPriceBox">
+            <div class="itemPriceBox">
+                <span class="totalPriceTitle">총 상품가격</span>
+                <span class="totalPrice">92000 원</span>
+            </div>
+            <div class="space_m_b_20"></div>
+            <div class="itemPriceBox">
+                <span class="totalPriceTitle">배송비</span>
+                <span class="totalPrice">3000 원</span>
+            </div>
+
+            <div class="space_m_b_20"></div>
+            <div class="itemPriceBox">
+                <span class="totalPriceTitle">총 결제 금액</span>
+                <strong class="totalPaymentPrice">
+                    95000
+                    <span class="totalPaymentUnit">원</span>
+                </strong>
+            </div>
+          </div>
+          <div class="space_m_b_30"></div>
+          <button id='submitHandler'class="submitButton"> CHECK OUT </button>
+        </div>
+      </div>
+    </div>
+
+      <script src="./prototype.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Pacifico&display=swap');
+        :root {
+            --main-font: 'Pacifico', cursive;
+        }
+        svg {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <svg width="500px" height="500px">
+        <g>
+           <circle cy="50" cx="50" r="30"></circle>
+           <circle cy="150" cx="150" r="30"></circle>
+           <circle cy="250" cx="250" r="30"></circle>
+           <rect x="200" y="50" width="100" height="100"
+           style="fill:tomato; stroke:black; stroke-width:30px;" />
+           <rect x="300" y="50" width="100" height="100"
+           style="fill:tomato; stroke:black; "/>
+           <path d="M 100,300 100,350 200,300 200,350"  />
+           <path d="M 300,300 300,350 350,350 350,300"  />
+        </g>
+        <text x="400" y="400">hello world</text>
+    </svg>
+    <div class="canvas"></div>
+    <script>
+        const canvas = d3.select(".canvas")
+
+        const svg = canvas.append("svg") // 추가
+        .attr("height", 1000)// 속성 지정
+        .attr("width", 1000);
+
+        svg.append('text')
+        .attr('x', 200)
+        .attr('y', 200) // 좌측 하단 기준 좌표
+        .text('hello word')
+        .style('font-weight', 'bold')
+        .style('font-size', '34px')
+        .style('font-family', 'pacifico')
+
+        svg.append('rect') // 사각형 형태로 추가
+        // .attr('x', 200)
+        // .attr('y', 200) 
+        .attr('width', 200)
+        .attr('height', 200)
+        .attr('fill', 'hotpink')
+
+        svg.append('circle')
+        // .attr('x', 200)
+        // .attr('y', 200) 
+        .attr('r', 50)
+        .attr('cx', 200)
+        .attr('cy', 200)
+        .attr('fill', 'blue')
+
+        svg.append('line')
+        .attr('x1', 200)
+        .attr('y1', 200) 
+        .attr('x2', 300)
+        .attr('y2', 300)
+        .attr('stroke', 'green')
+    </script>
+</body>
+</html> 
